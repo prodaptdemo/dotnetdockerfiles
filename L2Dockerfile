@@ -1,0 +1,8 @@
+FROM prodaptimages/dotnetbase 
+WORKDIR /app
+COPY /coreweb .
+RUN dotnet restore
+RUN dotnet publish -c Release
+EXPOSE 80
+COPY supervisord.conf  /etc/supervisor/
+COPY site.conf /etc/nginx/sites-available/default
