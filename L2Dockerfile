@@ -1,6 +1,6 @@
 FROM prodaptimages/dotnetbase 
 WORKDIR /app
-COPY / .
+COPY ./* ./
 RUN dotnet restore
 RUN dotnet publish -c Release
 EXPOSE 80
